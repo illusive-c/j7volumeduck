@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_label">J7 Volume Duck</string>
+    <string name="notification_channel_name">Volume ducking</string>
+    <string name="notification_title">J7 Volume Duck active</string>
+    <string name="notification_text">Monitoring doors to duck the volume.</string>
+</resources>

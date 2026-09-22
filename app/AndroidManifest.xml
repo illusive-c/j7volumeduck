@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.j7volumeduck"
+    android:versionCode="1"
+    android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="30" android:targetSdkVersion="30"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!-- Binds the vehicle's Desay VDB CAR_INFO service on targetSdk 30:
+         the VDS binder permission plus package visibility for the vds
+         provider packages (proven in J7Toolkit service v1). -->
+    <uses-permission android:name="ivi.vds.permission.SERVICE"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <!-- Deliberately NO android.permission.INTERNET. -->
+    <application android:label="@string/app_label" android:allowBackup="false">
+        <service
+            android:name=".DuckService"
+            android:exported="false"/>
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name=".BootstrapActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:label="@string/app_label"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
