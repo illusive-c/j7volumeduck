@@ -15,9 +15,9 @@ APP="$(cd "$(dirname "$0")" && pwd)"
 BUILD=$TOOLCHAIN/build
 WORK=$BUILD/j7volumeduck
 APK=releases/j7volumeduck_v1.apk
-KS="${J7VD_KEYSTORE:-$APP/../keystore/recon.keystore}"
+KS="${J7VD_KEYSTORE:-$APP/../keystore/j7volumeduck.keystore}"
 KS_PASS="${J7VD_KS_PASS:-android}"
-KS_ALIAS="${J7VD_KS_ALIAS:-j7recon}"
+KS_ALIAS="${J7VD_KS_ALIAS:-j7volumeduck}"
 cd "$APP"
 rm -rf "$WORK"
 mkdir -p "$WORK/gen" "$WORK/classes" "$WORK/dex" releases
